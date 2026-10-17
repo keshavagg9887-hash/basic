@@ -37,7 +37,14 @@ res.sendFile(path.join(__dirname,"public","info.html"));
 
 
 })
+app.get('/getfunctionpage',(req,res)=>{
 
+
+    res.json({
+        "message":"this is the get functions page"
+    });
+    
+})
 app.listen(3000, () => {
     console.log("server is started at port 3000");
 
