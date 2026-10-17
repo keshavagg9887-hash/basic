@@ -39,17 +39,8 @@ res.json(
     });
 
 })
-app.get('/info',(req,res)=>{
-
-res.sendFile(path.join(__dirname,"public","info.html"));
 
 
-})
-app.get('/aboutus',(req,res)=>{
- res.sendFile(path.join(__dirname,"public","about.html"))
-    
-
-})
 
 app.listen(3000, () => {
     console.log("server is started at port 3000");
