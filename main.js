@@ -31,20 +31,26 @@ app.post('/login', (req, res) => {
         });
     }
 })
+app.get('/contact',(req,res)=>{
+res.json(
+    
+    {
+        "message":"you can contact us by here"
+    });
+
+})
 app.get('/info',(req,res)=>{
 
 res.sendFile(path.join(__dirname,"public","info.html"));
 
 
 })
-app.get('/getfunctionpage',(req,res)=>{
-
-
-    res.json({
-        "message":"this is the get functions page"
-    });
+app.get('/aboutus',(req,res)=>{
+ res.sendFile(path.join(__dirname,"public","about.html"))
     
+
 })
+
 app.listen(3000, () => {
     console.log("server is started at port 3000");
 
