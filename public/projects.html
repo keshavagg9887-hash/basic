@@ -1,0 +1,249 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#fffdf7">
+
+    <title>Projects | The Collective</title>
+
+  <link rel="stylesheet" href="style.css">
+    </head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header class="navbar">
+        <a href="/" class="brand">
+            <span class="brand-symbol">✳</span>
+            THE COLLECTIVE
+        </a>
+
+        <nav class="nav-links" aria-label="Main navigation">
+            <a href="/dashboard">Dashboard</a>
+            <a href="/members">The seven</a>
+            <a href="/projects" class="active">Projects</a>
+            <a href="/profile">My profile</a>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="page-container">
+
+        <section class="page-header">
+            <div>
+                <span class="eyebrow">Ideas into reality ✳</span>
+
+                <h1>
+                    What we're <span class="heading-accent">building.</span>
+                </h1>
+
+                <p class="page-subtitle">
+                    A collection of ideas, experiments, and things we're
+                    bringing to life together. Hover over a project to
+                    discover what happens behind the scenes.
+                </p>
+            </div>
+
+            <div class="project-count" id="projectCount">
+                3 projects and counting ✦
+            </div>
+        </section>
+
+        <!-- PROJECT CARDS -->
+        <section
+            class="projects-container"
+            id="projectsContainer"
+            aria-label="Our projects"
+        >
+
+            <!-- PROJECT ONE -->
+            <article class="project-card">
+                <div class="project-heading">
+                    <span class="project-icon" aria-hidden="true">🚀</span>
+                    <h2 class="project-title">Project One</h2>
+                </div>
+
+                <p class="project-status">
+                    <span class="status-dot" aria-hidden="true"></span>
+                    Status: Planning
+                </p>
+
+                <p class="project-description">
+                    Describe the first team project here.
+                </p>
+
+                <div class="project-extra">
+                    <div class="project-extra-inner">
+                        <div class="project-extra-content">
+                            <span class="extra-label">Behind the idea</span>
+                            <p>
+                                We're shaping the concept, defining the
+                                requirements, and deciding how to turn this
+                                idea into something useful. More details
+                                will be added as the project develops.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-footer">
+                    <span class="project-tag">In the works</span>
+                    <button
+                        type="button"
+                        class="details-button"
+                        aria-expanded="false"
+                    >
+                        More info <span aria-hidden="true">↗</span>
+                    </button>
+                </div>
+            </article>
+
+            <!-- PROJECT TWO -->
+            <article class="project-card">
+                <div class="project-heading">
+                    <span class="project-icon" aria-hidden="true">🎨</span>
+                    <h2 class="project-title">Project Two</h2>
+                </div>
+
+                <p class="project-status status-progress">
+                    <span class="status-dot" aria-hidden="true"></span>
+                    Status: In progress
+                </p>
+
+                <p class="project-description">
+                    Describe the second team project here.
+                </p>
+
+                <div class="project-extra">
+                    <div class="project-extra-inner">
+                        <div class="project-extra-content">
+                            <span class="extra-label">Behind the idea</span>
+                            <p>
+                                Work is underway. The team is building
+                                the core features, testing different
+                                approaches, and improving the experience
+                                based on what we learn along the way.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-footer">
+                    <span class="project-tag">In development</span>
+                    <button
+                        type="button"
+                        class="details-button"
+                        aria-expanded="false"
+                    >
+                        More info <span aria-hidden="true">↗</span>
+                    </button>
+                </div>
+            </article>
+
+            <!-- PROJECT THREE -->
+            <article class="project-card">
+                <div class="project-heading">
+                    <span class="project-icon" aria-hidden="true">🧩</span>
+                    <h2 class="project-title">Project Three</h2>
+                </div>
+
+                <p class="project-status status-idea">
+                    <span class="status-dot" aria-hidden="true"></span>
+                    Status: Idea
+                </p>
+
+                <p class="project-description">
+                    Describe the third team project here.
+                </p>
+
+                <div class="project-extra">
+                    <div class="project-extra-inner">
+                        <div class="project-extra-content">
+                            <span class="extra-label">Behind the idea</span>
+                            <p>
+                                This idea is at the exploration stage.
+                                We're collecting inspiration, identifying
+                                the problem to solve, and figuring out
+                                what a first version could look like.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-footer">
+                    <span class="project-tag">Exploring</span>
+                    <button
+                        type="button"
+                        class="details-button"
+                        aria-expanded="false"
+                    >
+                        More info <span aria-hidden="true">↗</span>
+                    </button>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- BOTTOM BANNER -->
+        <section class="bottom-banner">
+            <div>
+                <h2>Have an idea? Let's build it. ✨</h2>
+                <p>
+                    Great projects start with people who are curious enough
+                    to try something new.
+                </p>
+            </div>
+
+            <a href="/members" class="contact-button">
+                Meet the team →
+            </a>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        Made with ✳ by The Collective.
+    </footer>
+
+    <!-- INTERACTION -->
+    <script>
+        const projectCards = document.querySelectorAll(".project-card");
+
+        // Update the project count automatically.
+        const projectCount = document.getElementById("projectCount");
+        const totalProjects = projectCards.length;
+
+        projectCount.textContent =
+            `${totalProjects} project${totalProjects === 1 ? "" : "s"} and counting ✦`;
+
+        // Let users open or close descriptions with a button.
+        // This also makes the extra information accessible on touch devices.
+        projectCards.forEach((card) => {
+            const button = card.querySelector(".details-button");
+            const extra = card.querySelector(".project-extra");
+
+            button.addEventListener("click", () => {
+                const isExpanded =
+                    button.getAttribute("aria-expanded") === "true";
+
+                button.setAttribute("aria-expanded", String(!isExpanded));
+                card.classList.toggle("expanded", !isExpanded);
+
+                button.innerHTML = isExpanded
+                    ? 'More info <span aria-hidden="true">↗</span>'
+                    : 'Less info <span aria-hidden="true">↙</span>';
+
+                if (!isExpanded) {
+                    extra.setAttribute("aria-label", "Additional project description");
+                } else {
+                    extra.removeAttribute("aria-label");
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
