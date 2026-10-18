@@ -1,12 +1,25 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Login | The Collective</title>
 
     <style>
+        :root {
+            --ink: #24213a;
+            --muted: #69657d;
+            --yellow: #ffe66d;
+            --coral: #ff7867;
+            --pink: #ffb7d5;
+            --purple: #b8a5ff;
+            --blue: #9ee7ff;
+            --mint: #b9f4d0;
+            --paper: #fffdf7;
+            --white: #ffffff;
+            --line: rgba(36, 33, 58, .15);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -17,30 +30,143 @@
         body {
             min-height: 100vh;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            flex-direction: column;
+            background: var(--paper);
+            color: var(--ink);
         }
 
-        .login-container {
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .announcement {
+            padding: 11px;
+            text-align: center;
+            background: var(--yellow);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 8%;
+            border-bottom: 2px solid var(--line);
+        }
+
+        .brand {
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .brand span {
+            color: var(--coral);
+        }
+
+        .brand-subtitle {
+            margin-top: 5px;
+            color: var(--muted);
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .header-link {
+            padding: 10px 16px;
+            background: var(--purple);
+            border: 2px solid var(--ink);
+            border-radius: 10px;
+            box-shadow: 3px 3px 0 var(--ink);
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        main {
             width: 90%;
-            max-width: 400px;
-            padding: 35px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 1050px;
+            margin: auto;
+            padding: 55px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .intro .eyebrow {
+            display: inline-block;
+            padding: 9px 14px;
+            margin-bottom: 24px;
+            background: var(--mint);
+            border: 2px solid var(--ink);
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            transform: rotate(-2deg);
         }
 
         h1 {
-            text-align: center;
-            margin-bottom: 10px;
-            color: #333;
+            margin-bottom: 20px;
+            font-size: clamp(40px, 5vw, 62px);
+            line-height: 1.05;
+            letter-spacing: -3px;
+        }
+
+        h1 span {
+            color: var(--coral);
+        }
+
+        .intro p {
+            max-width: 400px;
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .sticker {
+            margin-top: 30px;
+            max-width: 370px;
+            padding: 22px;
+            background: var(--blue);
+            border: 2px solid var(--ink);
+            border-radius: 18px;
+            box-shadow: 6px 6px 0 var(--ink);
+            transform: rotate(1deg);
+        }
+
+        .sticker strong {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .sticker p {
+            color: var(--ink);
+            font-size: 13px;
+        }
+
+        .form-card {
+            padding: 35px;
+            background: var(--white);
+            border: 2px solid var(--ink);
+            border-radius: 22px;
+            box-shadow: 8px 8px 0 var(--purple);
+        }
+
+        .form-card h2 {
+            margin-bottom: 9px;
+            font-size: 29px;
+            letter-spacing: -1px;
         }
 
         .subtitle {
-            text-align: center;
-            color: #777;
-            margin-bottom: 25px;
+            margin-bottom: 27px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.6;
         }
 
         .input-group {
@@ -50,117 +176,192 @@
         label {
             display: block;
             margin-bottom: 8px;
-            color: #333;
-            font-size: 14px;
-            font-weight: bold;
+            font-size: 12px;
+            font-weight: 800;
         }
 
         input {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 7px;
-            font-size: 15px;
+            padding: 13px;
+            background: var(--paper);
+            border: 2px solid var(--line);
+            border-radius: 10px;
+            color: var(--ink);
+            font-size: 14px;
         }
 
         input:focus {
             outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.15);
+            border-color: var(--purple);
+            box-shadow: 0 0 0 3px rgba(184, 165, 255, .25);
         }
 
-        .forgot-password {
-            display: block;
-            text-align: right;
-            margin-top: -8px;
-            margin-bottom: 20px;
-            font-size: 14px;
-            color: #667eea;
-            text-decoration: none;
-        }
-
-        .login-btn {
+        .submit-btn {
             width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 7px;
-            background: #667eea;
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .login-btn:hover {
-            background: #5367d5;
-        }
-
-        .signup-link {
-            text-align: center;
-            margin-top: 22px;
-            color: #666;
+            padding: 14px;
+            background: var(--coral);
+            border: 2px solid var(--ink);
+            border-radius: 10px;
+            box-shadow: 4px 4px 0 var(--ink);
+            color: var(--ink);
             font-size: 14px;
+            font-weight: 900;
+            cursor: pointer;
+            transition: .2s;
         }
 
-        .signup-link a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: bold;
+        .submit-btn:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0 var(--ink);
         }
 
-        .signup-link a:hover,
-        .forgot-password:hover {
+        .form-footer {
+            margin-top: 25px;
+            color: var(--muted);
+            text-align: center;
+            font-size: 13px;
+        }
+
+        .form-footer a {
+            color: var(--ink);
+            font-weight: 900;
             text-decoration: underline;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 22px;
+            border-top: 2px solid var(--line);
+            color: var(--muted);
+            text-align: center;
+            font-size: 11px;
+        }
+
+        @media (max-width: 760px) {
+            main {
+                max-width: 480px;
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 40px 0;
+            }
+
+            .intro {
+                text-align: center;
+            }
+
+            .intro p, .sticker {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            header {
+                padding: 20px 5%;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .form-card {
+                padding: 25px 20px;
+            }
+
+            h1 {
+                font-size: 42px;
+            }
+
+            .brand {
+                font-size: 18px;
+            }
         }
     </style>
 </head>
 
 <body>
+    <div class="announcement">
+        SEVEN MINDS · ONE JOURNEY ✦ WELCOME TO THE COLLECTIVE
+    </div>
 
-    <main class="login-container">
-        <h1>Welcome Back!</h1>
-        <p class="subtitle">Please login to your account</p>
+    <header>
+        <a href="group-homepage.html">
+            <div class="brand">THE <span>COLLECTIVE.</span></div>
+            <div class="brand-subtitle">SEVEN MINDS · ONE JOURNEY</div>
+        </a>
 
-        <form action="#" method="post">
-            <div class="input-group">
-                <label for="email">Email Address</label>
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="Enter your email"
-                    autocomplete="email"
-                    required
-                >
+        <a class="header-link" href="reg.html">Create Account ↗</a>
+    </header>
+
+    <main>
+        <section class="intro">
+            <div class="eyebrow">✦ GOOD TO SEE YOU AGAIN</div>
+
+            <h1>
+                Welcome<br>
+                <span>back!</span>
+            </h1>
+
+            <p>
+                Your people, your ideas, your next big adventure.
+                Sign in and pick up where you left off.
+            </p>
+
+            <div class="sticker">
+                <strong>Good people. Big ideas. ✨</strong>
+                <p>
+                    Every great journey has a place to begin.
+                    We're happy you're here again!
+                </p>
             </div>
+        </section>
 
-            <div class="input-group">
-                <label for="password">Password</label>
-                <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    placeholder="Enter your password"
-                    autocomplete="current-password"
-                    required
-                >
-            </div>
+        <section class="form-card">
+            <h2>Log In ✳</h2>
+            <p class="subtitle">
+                Enter your details to access your account.
+            </p>
 
-            <a href="#" class="forgot-password">
-                Forgot Password?
-            </a>
+            <form action="http://localhost:3000/auth/login" method="post">
+                <div class="input-group">
+                    <label for="email">EMAIL ADDRESS</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        autocomplete="email"
+                        required
+                    >
+                </div>
 
-            <button type="submit" class="login-btn">
-                Login
-            </button>
-        </form>
+                <div class="input-group">
+                    <label for="password">PASSWORD</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+                </div>
 
-        <p class="signup-link">
-            Don't have an account?
-            <a href="reg.html">Create Account</a>
-        </p>
+                <button type="submit" class="submit-btn">
+                    LOG IN ↗
+                </button>
+            </form>
+
+            <p class="form-footer">
+                New to the crew?
+                <a href="reg.html">Create an account</a>
+            </p>
+        </section>
     </main>
 
+    <footer>
+        © <span id="year"></span> THE COLLECTIVE · MADE WITH ♡
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
 </body>
 </html>
