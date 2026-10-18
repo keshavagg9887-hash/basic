@@ -12,6 +12,7 @@ const getloginUser = (req, res) => {
 };
 // POST /auth/register
 const registerUser = async (req, res) => {
+    
     const { fullname, email, password } = req.body;
     const confirmPassword = req.body["confirm-password"];
 
@@ -52,10 +53,8 @@ const registerUser = async (req, res) => {
             [normalizedName, normalizedEmail, passwordHash]
         );
 
-        return res.status(201).json({
-            message: "Registration successful",
-            user: result.rows[0]
-        });
+        return res.redirect('/auth/login');
+        
 
     } catch (error) {
         if (error.code === "23505") {
