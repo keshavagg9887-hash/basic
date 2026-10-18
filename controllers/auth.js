@@ -12,7 +12,7 @@ const getloginUser = (req, res) => {
 };
 // POST /auth/register
 const registerUser = async (req, res) => {
-    
+
     const { fullname, email, password } = req.body;
     const confirmPassword = req.body["confirm-password"];
 
@@ -54,7 +54,7 @@ const registerUser = async (req, res) => {
         );
 
         return res.redirect('/auth/login');
-        
+
 
     } catch (error) {
         if (error.code === "23505") {
@@ -107,33 +107,33 @@ const loginUser = async (req, res) => {
                 message: "Invalid email or password"
             });
         }
-// Password is correct — create the session
-req.session.regenerate((err) => {
-    if (err) {
-        console.error("Session creation error:", err);
+        // Password is correct — create the session
+        req.session.regenerate((err) => {
+            if (err) {
+                console.error("Session creation error:", err);
 
-        return res.status(500).json({
-            message: "Session creation failed"
-        });
-    }
+                return res.status(500).json({
+                    message: "Session creation failed"
+                });
+            }
 
-    req.session.userId = user.id;
-    req.session.userName = user.name;
+            req.session.userId = user.id;
+            req.session.userName = user.name;
 
-    // Save session in PostgreSQL before redirecting
-    req.session.save((err) => {
-        if (err) {
-            console.error("Session save error:", err);
+            // Save session in PostgreSQL before redirecting
+            req.session.save((err) => {
+                if (err) {
+                    console.error("Session save error:", err);
 
-            return res.status(500).json({
-                message: "Session save failed"
+                    return res.status(500).json({
+                        message: "Session save failed"
+                    });
+                }
+
+                return res.redirect("/main/home");
             });
-        }
+        });
 
-        return res.redirect("/main/home");
-    });
-});
-        
 
     } catch (error) {
         console.error("Login error:", error.message);

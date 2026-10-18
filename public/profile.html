@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -436,10 +436,11 @@
         </a>
 
         <nav class="nav-links" aria-label="Main navigation">
-          <a href="http://localhost:3000/main/home">Dashboard</a>
-            <a href="http://localhost:3000/main/sevens">The seven</a>
-            <a href="http://localhost:3000/main/projects">Projects</a>
-            <a href="http://localhost:3000/main/profile">My profile</a>
+            <a href="/main/home">Dashboard</a>
+            <a href="/main/sevens">The seven</a>
+            <a href="/main/projects">Projects</a>
+            <a href="/main/profile">My profile</a>
+        </nav>
     </header>
 
     <main class="page">
@@ -454,12 +455,7 @@
             </p>
         </section>
 
-        <form
-            id="profileForm"
-            action="/profile"
-            method="POST"
-            enctype="multipart/form-data"
-        >
+        <form id="profileForm" action="/profile" method="POST" enctype="multipart/form-data">
             <div class="profile-layout">
 
                 <!-- PROFILE PICTURE -->
@@ -474,38 +470,30 @@
                     </div>
 
                     <div class="avatar-options">
-                        <button type="button" class="avatar-option selected"
-                            data-avatar="🧑🏻‍💻" aria-label="Developer avatar"
-                            aria-pressed="true">🧑🏻‍💻</button>
+                        <button type="button" class="avatar-option selected" data-avatar="🧑🏻‍💻"
+                            aria-label="Developer avatar" aria-pressed="true">🧑🏻‍💻</button>
 
-                        <button type="button" class="avatar-option"
-                            data-avatar="👨🏻‍🎓" aria-label="Student avatar"
+                        <button type="button" class="avatar-option" data-avatar="👨🏻‍🎓" aria-label="Student avatar"
                             aria-pressed="false">👨🏻‍🎓</button>
 
-                        <button type="button" class="avatar-option"
-                            data-avatar="👩🏻‍💻" aria-label="Coding avatar"
+                        <button type="button" class="avatar-option" data-avatar="👩🏻‍💻" aria-label="Coding avatar"
                             aria-pressed="false">👩🏻‍💻</button>
 
-                        <button type="button" class="avatar-option"
-                            data-avatar="🧑🏻‍🚀" aria-label="Astronaut avatar"
+                        <button type="button" class="avatar-option" data-avatar="🧑🏻‍🚀" aria-label="Astronaut avatar"
                             aria-pressed="false">🧑🏻‍🚀</button>
 
-                        <button type="button" class="avatar-option"
-                            data-avatar="🧑🏻‍🎨" aria-label="Artist avatar"
+                        <button type="button" class="avatar-option" data-avatar="🧑🏻‍🎨" aria-label="Artist avatar"
                             aria-pressed="false">🧑🏻‍🎨</button>
 
-                        <button type="button" class="avatar-option"
-                            data-avatar="🦊" aria-label="Fox avatar"
+                        <button type="button" class="avatar-option" data-avatar="🦊" aria-label="Fox avatar"
                             aria-pressed="false">🦊</button>
                     </div>
 
-                    <input type="hidden" name="avatar" id="avatar"
-                        value="🧑🏻‍💻">
+                    <input type="hidden" name="avatar" id="avatar" value="🧑🏻‍💻">
 
                     <label class="upload-label" for="profilePic">
                         ↑ &nbsp; Upload your own photo
-                        <input type="file" id="profilePic" name="profilePic"
-                            accept="image/png,image/jpeg,image/webp">
+                        <input type="file" id="profilePic" name="profilePic" accept="image/png,image/jpeg,image/webp">
                     </label>
 
                     <p class="upload-help">
@@ -524,16 +512,14 @@
 
                         <div class="field">
                             <label for="name">Full name</label>
-                            <input type="text" id="name" name="name"
-                                placeholder="What should we call you?"
+                            <input type="text" id="name" name="name" placeholder="What should we call you?"
                                 maxlength="80" autocomplete="name" required>
                         </div>
 
                         <div class="field">
                             <label for="username">Username</label>
-                            <input type="text" id="username" name="username"
-                                placeholder="your_username"
-                                maxlength="30" autocomplete="username" required>
+                            <input type="text" id="username" name="username" placeholder="your_username" maxlength="30"
+                                autocomplete="username" required>
                         </div>
 
                         <div class="field full">
@@ -547,19 +533,16 @@
                         <div class="field full">
                             <label for="interests">Things you're into</label>
                             <input type="text" id="interests" name="interests"
-                                placeholder="Web dev, AI, design, music, startups..."
-                                maxlength="250">
+                                placeholder="Web dev, AI, design, music, startups..." maxlength="250">
                             <small>Separate your interests with commas.</small>
                         </div>
 
                     </div>
 
                     <div class="form-actions">
-                        <p id="saveMessage" class="save-message"
-                            role="status" aria-live="polite"></p>
+                        <p id="saveMessage" class="save-message" role="status" aria-live="polite"></p>
 
-                        <button type="submit" class="btn btn-primary"
-                            id="saveButton">
+                        <button type="submit" class="btn btn-primary" id="saveButton">
                             Save my profile →
                         </button>
                     </div>
@@ -703,4 +686,5 @@
     </script>
 
 </body>
+
 </html>
