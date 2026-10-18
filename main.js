@@ -9,8 +9,6 @@ app.get('/', (req, res) => {
     res.json({
         "message": "this is from backend"
     });
-
-
 })
 app.post('/login', (req, res) => {
 
@@ -22,26 +20,20 @@ app.post('/login', (req, res) => {
         else {
             res.json({
                 "message": "password wrong"
-            });
-        }
+});
+}
     }
     else {
         res.json({
             "message": "email wrong h mc"
-        });
-    }
+        });}
 })
 app.get('/contact',(req,res)=>{
 res.json(
-    
     {
         "message":"you can contact us by here"
     });
-
 })
-
-
-
 app.listen(3000, () => {
     console.log("server is started at port 3000");
 
