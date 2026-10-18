@@ -1,0 +1,1325 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Meet our crew of seven, explore our projects, and get in touch.">
+  <title>The Collective — Seven Minds, One Adventure</title>
+
+  <style>
+    :root {
+      --ink: #24213a;
+      --muted: #69657d;
+      --yellow: #ffe66d;
+      --coral: #ff7867;
+      --pink: #ffb7d5;
+      --purple: #b8a5ff;
+      --blue: #9ee7ff;
+      --mint: #b9f4d0;
+      --paper: #fffdf7;
+      --white: #ffffff;
+      --line: rgba(36, 33, 58, 0.12);
+      --shadow: 0 14px 40px rgba(45, 37, 83, 0.10);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    /* Announcement bar */
+
+    .announcement {
+      background: var(--ink);
+      color: white;
+      text-align: center;
+      padding: 8px 16px;
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+    }
+
+    .announcement strong {
+      color: var(--yellow);
+    }
+
+    /* Navigation */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 253, 247, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      background: var(--yellow);
+      border: 2px solid var(--ink);
+      border-radius: 14px;
+      transform: rotate(-5deg);
+      font-size: 1.25rem;
+    }
+
+    .brand-name {
+      font-size: 1.03rem;
+      line-height: 1.05;
+    }
+
+    .brand-name small {
+      display: block;
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.11em;
+      margin-top: 4px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .nav-links a:not(.nav-cta):hover {
+      color: #e54f79;
+    }
+
+    .nav-cta,
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--coral);
+      color: var(--ink);
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      padding: 11px 19px;
+      font-weight: 850;
+      box-shadow: 3px 3px 0 var(--ink);
+      transition: transform 0.18s, box-shadow 0.18s;
+    }
+
+    .nav-cta:hover,
+    .button:hover {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0 var(--ink);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 0;
+      font-size: 1.7rem;
+      color: var(--ink);
+      cursor: pointer;
+    }
+
+    /* Hero section */
+
+    .hero {
+      padding: 74px 0 64px;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 45px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--mint);
+      border: 1.5px solid var(--ink);
+      border-radius: 999px;
+      padding: 7px 13px;
+      font-size: 0.8rem;
+      font-weight: 850;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #39a86b;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 6.4vw, 5.7rem);
+      line-height: 0.99;
+      letter-spacing: -0.075em;
+      margin: 22px 0;
+      max-width: 650px;
+    }
+
+    .highlight {
+      position: relative;
+      display: inline-block;
+      z-index: 0;
+      white-space: nowrap;
+    }
+
+    .highlight::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      left: -2px;
+      right: -5px;
+      bottom: 4px;
+      height: 35%;
+      background: var(--yellow);
+      transform: rotate(-1.5deg);
+      border-radius: 8px;
+    }
+
+    .hero-copy {
+      color: var(--muted);
+      max-width: 510px;
+      font-size: 1.08rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 27px;
+    }
+
+    .button.secondary {
+      background: var(--white);
+    }
+
+    .mini-note {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 27px;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .mini-avatars {
+      display: flex;
+      padding-left: 5px;
+    }
+
+    .mini-avatars span {
+      width: 29px;
+      height: 29px;
+      display: grid;
+      place-items: center;
+      border: 2px solid var(--paper);
+      border-radius: 50%;
+      margin-left: -5px;
+      font-size: 0.8rem;
+    }
+
+    .mini-avatars span:nth-child(1) { background: var(--pink); }
+    .mini-avatars span:nth-child(2) { background: var(--blue); }
+    .mini-avatars span:nth-child(3) { background: var(--mint); }
+    .mini-avatars span:nth-child(4) { background: var(--purple); }
+
+    /* Seven decorative member placeholders */
+
+    .hero-art {
+      min-height: 430px;
+      position: relative;
+      display: grid;
+      place-items: center;
+    }
+
+    .art-backdrop {
+      position: absolute;
+      width: 88%;
+      height: 83%;
+      border-radius: 48% 52% 58% 42% / 43% 39% 61% 57%;
+      background: var(--purple);
+      transform: rotate(7deg);
+    }
+
+    .photo-collage {
+      position: relative;
+      width: 100%;
+      height: 410px;
+    }
+
+    .photo-tile {
+      position: absolute;
+      width: 112px;
+      height: 124px;
+      border: 2px solid var(--ink);
+      border-radius: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 5px 5px 0 var(--ink);
+      font-size: 0.73rem;
+      font-weight: 850;
+      text-align: center;
+    }
+
+    .photo-tile .avatar {
+      font-size: 2.5rem;
+      line-height: 1;
+    }
+
+    .tile-1 { left: 5%; top: 10%; background: var(--yellow); transform: rotate(-10deg); }
+    .tile-2 { left: 37%; top: 1%; background: var(--pink); transform: rotate(7deg); }
+    .tile-3 { right: 3%; top: 17%; background: var(--blue); transform: rotate(10deg); }
+    .tile-4 { left: 1%; top: 49%; background: var(--mint); transform: rotate(7deg); }
+    .tile-5 { left: 34%; top: 39%; background: #ffd0a6; transform: rotate(-5deg); }
+    .tile-6 { right: 4%; top: 53%; background: var(--yellow); transform: rotate(-8deg); }
+    .tile-7 { left: 36%; bottom: 0; background: var(--coral); transform: rotate(5deg); }
+
+    .spark {
+      position: absolute;
+      font-size: 2.4rem;
+      color: var(--ink);
+    }
+
+    .spark-one {
+      top: 3%;
+      right: 10%;
+      transform: rotate(15deg);
+    }
+
+    .spark-two {
+      left: 11%;
+      bottom: 3%;
+      font-size: 2rem;
+      transform: rotate(-15deg);
+    }
+
+    .art-label {
+      position: absolute;
+      z-index: 2;
+      right: -2px;
+      bottom: 18px;
+      background: var(--white);
+      border: 2px solid var(--ink);
+      border-radius: 16px;
+      padding: 10px 14px;
+      font-weight: 850;
+      transform: rotate(4deg);
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+
+    /* Scrolling-style values strip */
+
+    .ticker {
+      background: var(--yellow);
+      border-top: 2px solid var(--ink);
+      border-bottom: 2px solid var(--ink);
+      overflow: hidden;
+    }
+
+    .ticker-inner {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      gap: 28px;
+      padding: 13px 0;
+      white-space: nowrap;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.82rem;
+    }
+
+    .ticker .star {
+      color: #e95478;
+      font-size: 1.2rem;
+    }
+
+    section {
+      scroll-margin-top: 95px;
+    }
+
+    .section {
+      padding: 88px 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 34px;
+    }
+
+    .kicker {
+      color: #d94e72;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      font-size: 0.77rem;
+    }
+
+    h2 {
+      font-size: clamp(2.25rem, 4.5vw, 3.7rem);
+      letter-spacing: -0.065em;
+      line-height: 1.03;
+      margin: 9px 0 0;
+    }
+
+    .section-head p {
+      max-width: 410px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* Team cards */
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .member-card {
+      background: white;
+      border: 1.5px solid var(--ink);
+      border-radius: 22px;
+      padding: 12px;
+      box-shadow: 4px 5px 0 var(--ink);
+      transition: transform 0.2s;
+    }
+
+    .member-card:hover {
+      transform: translateY(-5px) rotate(-0.5deg);
+    }
+
+    .member-photo {
+      min-height: 190px;
+      border: 1.5px dashed rgba(36, 33, 58, 0.35);
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .member-photo .placeholder-icon {
+      font-size: 3.2rem;
+    }
+
+    .member-photo small {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 0.7rem;
+      font-weight: 800;
+      color: rgba(36, 33, 58, 0.68);
+    }
+
+    .member-card:nth-child(1) .member-photo { background: #fff0a8; }
+    .member-card:nth-child(2) .member-photo { background: #ffd8e8; }
+    .member-card:nth-child(3) .member-photo { background: #c9f3ff; }
+    .member-card:nth-child(4) .member-photo { background: #d9d0ff; }
+    .member-card:nth-child(5) .member-photo { background: #c9f5d9; }
+    .member-card:nth-child(6) .member-photo { background: #ffd8be; }
+    .member-card:nth-child(7) .member-photo { background: #ffced0; }
+
+    .member-info {
+      padding: 15px 5px 5px;
+    }
+
+    .member-info h3 {
+      margin: 0;
+      font-size: 1.13rem;
+      letter-spacing: -0.03em;
+    }
+
+    .member-info p {
+      color: var(--muted);
+      font-size: 0.87rem;
+      margin: 5px 0 12px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--mint);
+      border-radius: 999px;
+      padding: 5px 9px;
+      font-size: 0.69rem;
+      font-weight: 850;
+    }
+
+    .member-card:nth-child(2) .tag { background: var(--pink); }
+    .member-card:nth-child(3) .tag { background: var(--blue); }
+    .member-card:nth-child(4) .tag { background: var(--purple); }
+    .member-card:nth-child(6) .tag { background: #ffd8be; }
+    .member-card:nth-child(7) .tag { background: var(--yellow); }
+
+    .socials {
+      display: flex;
+      gap: 8px;
+      margin-top: 13px;
+    }
+
+    .socials a {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+
+    .socials a:hover {
+      background: var(--yellow);
+      border-color: var(--ink);
+    }
+
+    /* About section */
+
+    .about-band {
+      background: var(--blue);
+      border-top: 2px solid var(--ink);
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-sticker {
+      min-height: 300px;
+      border: 2px solid var(--ink);
+      border-radius: 28px;
+      background: var(--pink);
+      display: grid;
+      place-items: center;
+      position: relative;
+      box-shadow: 7px 7px 0 var(--ink);
+    }
+
+    .about-sticker .big-symbol {
+      font-size: 8rem;
+      transform: rotate(-9deg);
+    }
+
+    .sticker-note {
+      position: absolute;
+      bottom: 20px;
+      right: 18px;
+      background: var(--yellow);
+      padding: 9px 14px;
+      border: 1.5px solid var(--ink);
+      border-radius: 12px;
+      font-weight: 900;
+      transform: rotate(5deg);
+    }
+
+    .about-copy p {
+      color: #45425e;
+      font-size: 1.04rem;
+    }
+
+    .values {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .value-pill {
+      padding: 8px 13px;
+      border: 1.5px solid var(--ink);
+      border-radius: 999px;
+      background: white;
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+
+    /* Projects */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .project-card {
+      border: 1.5px solid var(--ink);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 4px 5px 0 var(--ink);
+      background: white;
+    }
+
+    .project-art {
+      min-height: 165px;
+      display: grid;
+      place-items: center;
+      font-size: 3.8rem;
+      border-bottom: 1.5px solid var(--ink);
+    }
+
+    .project-card:nth-child(1) .project-art { background: var(--yellow); }
+    .project-card:nth-child(2) .project-art { background: var(--mint); }
+    .project-card:nth-child(3) .project-art { background: var(--purple); }
+
+    .project-body {
+      padding: 20px;
+    }
+
+    .project-body h3 {
+      margin: 0 0 8px;
+      font-size: 1.18rem;
+    }
+
+    .project-body p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin: 0 0 14px;
+    }
+
+    .project-link {
+      font-size: 0.85rem;
+      font-weight: 900;
+      border-bottom: 2px solid var(--coral);
+    }
+
+    /* Contact section */
+
+    .contact {
+      padding: 0 0 88px;
+    }
+
+    .contact-panel {
+      background: var(--coral);
+      border: 2px solid var(--ink);
+      border-radius: 30px;
+      padding: clamp(28px, 5vw, 58px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+      box-shadow: 7px 7px 0 var(--ink);
+    }
+
+    .contact-panel h2 {
+      max-width: 620px;
+    }
+
+    .contact-panel p {
+      margin: 14px 0 0;
+      color: #4e3144;
+      max-width: 540px;
+    }
+
+    .contact-panel .button {
+      flex-shrink: 0;
+      background: var(--yellow);
+    }
+
+    /* Footer */
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 25px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      font-weight: 750;
+      color: var(--ink);
+    }
+
+    .footer-links a:hover {
+      color: #d94e72;
+    }
+
+    /* Tablet layout */
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .hero-art {
+        max-width: 570px;
+        width: 100%;
+        margin: 0 auto;
+        min-height: 400px;
+      }
+
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .about-sticker {
+        min-height: 240px;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .projects-grid .project-card:last-child {
+        grid-column: 1 / -1;
+      }
+
+      .section-head {
+        align-items: start;
+        flex-direction: column;
+      }
+    }
+
+    /* Mobile layout */
+
+    @media (max-width: 650px) {
+      .container {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .nav {
+        min-height: 68px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        padding: 18px 22px 22px;
+        background: var(--paper);
+        border-bottom: 1px solid var(--line);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-cta {
+        text-align: center;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      h1 {
+        font-size: clamp(3rem, 14vw, 4.5rem);
+      }
+
+      .hero-art {
+        min-height: 350px;
+      }
+
+      .photo-collage {
+        transform: scale(0.83);
+        transform-origin: center center;
+        height: 360px;
+      }
+
+      .photo-tile {
+        width: 100px;
+        height: 112px;
+      }
+
+      .art-label {
+        right: 0;
+        bottom: 0;
+      }
+
+      .section {
+        padding: 65px 0;
+      }
+
+      .team-grid {
+        gap: 12px;
+      }
+
+      .member-photo {
+        min-height: 145px;
+      }
+
+      .member-info h3 {
+        font-size: 1rem;
+      }
+
+      .member-info p {
+        font-size: 0.8rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-grid .project-card:last-child {
+        grid-column: auto;
+      }
+
+      .contact-panel {
+        flex-direction: column;
+        align-items: start;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="announcement">
+    A small crew with <strong>big ideas</strong> ✦ Say hi and get to know us!
+  </div>
+
+  <header>
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="The Collective home">
+        <span class="brand-mark">✳</span>
+        <span class="brand-name">
+          THE COLLECTIVE
+          <small>SEVEN MINDS · ONE JOURNEY</small>
+        </span>
+      </a>
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+      >☰</button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#team">The seven</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About us</a>
+        <a class="nav-cta" href="#contact">Say hello ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">
+            <span></span>
+            A little about us
+          </div>
+
+          <h1>
+            Seven minds.<br>
+            One <span class="highlight">big adventure.</span>
+          </h1>
+
+          <p class="hero-copy">
+            We're seven people with different interests, shared ambitions,
+            and plenty of ideas. This is our little corner of the internet —
+            a place to meet the crew and see what we're making.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button" href="#team">Meet the crew <span>↘</span></a>
+            <a class="button secondary" href="#projects">
+              Explore our work <span>↗</span>
+            </a>
+          </div>
+
+          <div class="mini-note">
+            <div class="mini-avatars" aria-hidden="true">
+              <span>✦</span>
+              <span>☻</span>
+              <span>✿</span>
+              <span>⚡</span>
+            </div>
+            <span>7 personalities · countless possibilities</span>
+          </div>
+        </div>
+
+        <!-- Decorative placeholders for seven members -->
+        <div class="hero-art" aria-label="Colorful placeholders representing the seven members">
+          <div class="art-backdrop"></div>
+
+          <div class="photo-collage">
+            <div class="photo-tile tile-1">
+              <span class="avatar">☻</span>
+              <span>MEMBER 01</span>
+            </div>
+
+            <div class="photo-tile tile-2">
+              <span class="avatar">✿</span>
+              <span>MEMBER 02</span>
+            </div>
+
+            <div class="photo-tile tile-3">
+              <span class="avatar">✦</span>
+              <span>MEMBER 03</span>
+            </div>
+
+            <div class="photo-tile tile-4">
+              <span class="avatar">☼</span>
+              <span>MEMBER 04</span>
+            </div>
+
+            <div class="photo-tile tile-5">
+              <span class="avatar">⚡</span>
+              <span>MEMBER 05</span>
+            </div>
+
+            <div class="photo-tile tile-6">
+              <span class="avatar">❋</span>
+              <span>MEMBER 06</span>
+            </div>
+
+            <div class="photo-tile tile-7">
+              <span class="avatar">☺</span>
+              <span>MEMBER 07</span>
+            </div>
+          </div>
+
+          <span class="spark spark-one">✳</span>
+          <span class="spark spark-two">✦</span>
+          <div class="art-label">Nice to meet you! 👋</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUES STRIP -->
+    <div class="ticker" aria-label="Our values">
+      <div class="container ticker-inner">
+        <span>Curiosity first</span>
+        <span class="star">✦</span>
+        <span>Make cool things</span>
+        <span class="star">✦</span>
+        <span>Learn together</span>
+        <span class="star">✦</span>
+        <span>Stay kind</span>
+      </div>
+    </div>
+
+    <!-- TEAM SECTION -->
+    <section class="section" id="team">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">The people behind it</div>
+            <h2>Meet the seven<span style="color:#ff7867">.</span></h2>
+          </div>
+
+          <p>
+            Different strengths, different perspectives, and one team.
+            Swap in our names, photos, interests, and social links whenever
+            we're ready.
+          </p>
+        </div>
+
+        <div class="team-grid">
+          <!--
+            To add a profile photo later, replace the placeholder inside
+            .member-photo with:
+
+            <img src="images/member-1.jpg" alt="Member One" class="profile-image">
+
+            Keep your images in an "images" folder inside this project.
+          -->
+
+          <article class="member-card">
+            <div class="member-photo">
+              <span class="placeholder-icon">☻</span>
+              <small>PHOTO GOES HERE</small>
+            </div>
+            <div class="member-info">
+              <h3>Member One</h3>
+              <p>Your short intro goes here.</p>
+              <div class="tags">
+                <span class="tag">Developer</span>
+                <span class="tag">Problem solver</span>
+              </div>
+              <div class="socials">
+                <a href="#" aria-label="Member One GitHub">GH</a>
+                <a href="#" aria-label="Member One LinkedIn">in</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="member-card">
+            <div class="member-photo">
+              <span class="placeholder-icon">✿</span>
+              <small>PHOTO GOES HERE</small>
+            </div>
+            <div class="member-info">
+              <h3>Member Two</h3>
+              <p>A little line about this person.</p>
+              <div class="tags">
+                <span class="tag">Designer</span>
+                <span class="tag">Creative</span>
+              </div>
+              <div class="socials">
+                <a href="#" aria-label="Member Two GitHub">GH</a>
+                <a href="#" aria-label="Member Two LinkedIn">in</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="member-card">
+            <div class="member-photo">
+              <span class="placeholder-icon">✦</span>
+              <small>PHOTO GOES HERE</small>
+            </div>
+            <div class="member-info">
+              <h3>Member Three</h3>
+              <p>What they're curious about.</p>
+              <div class="tags">
+                <span class="tag">Tech enthusiast</span>
+                <span class="tag">Learner</span>
+              </div>
+              <div class="socials">
+                <a href="#" aria-label="Member Three GitHub">GH</a>
+                <a href="#" aria-label="Member Three LinkedIn">in</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="member-card">
+            <div class="member-photo">
+              <span class="placeholder-icon">☼</span>
+              <small>PHOTO GOES HERE</small>
+            </div>
+            <div class="member-info">
+              <h3>Member Four</h3>
+              <p>Introduce yourself in a sentence.</p>
+              <div class="tags">
+                <span class="tag">Research</span>
+                <span class="tag">Ideas</span>
+              </div>
+              <div class="socials">
+                <a href="#" aria-label="Member Four GitHub">GH</a>
+                <a href="#" aria-label="Member Four LinkedIn">in</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="member-card">
+            <div class="member-photo">
+              <span class="placeholder-icon">⚡</span>
+              <small>PHOTO GOES HERE</small>
+            </div>
+            <div class="member-info">
+              <h3>Member Five</h3>
+              <p>One fun fact or personal goal.</p>
+              <div class="tags">
+                <span class="tag">Builder</span>
+                <span class="tag">Curious</span>
+              </div>
+              <div class="socials">
+                <a href="#" aria-label="Member Five GitHub">GH</a>
+                <a href="#" aria-label="Member Five LinkedIn">in</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="member-card">
+            <div class="member-photo">
+              <span class="placeholder-icon">❋</span>
+              <small>PHOTO GOES HERE</small>
+            </div>
+            <div class="member-info">
+              <h3>Member Six</h3>
+              <p>A quick intro about this member.</p>
+              <div class="tags">
+                <span class="tag">Team player</span>
+                <span class="tag">Learning</span>
+              </div>
+              <div class="socials">
+                <a href="#" aria-label="Member Six GitHub">GH</a>
+                <a href="#" aria-label="Member Six LinkedIn">in</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="member-card">
+            <div class="member-photo">
+              <span class="placeholder-icon">☺</span>
+              <small>PHOTO GOES HERE</small>
+            </div>
+            <div class="member-info">
+              <h3>Member Seven</h3>
+              <p>Share what makes you, you.</p>
+              <div class="tags">
+                <span class="tag">Communicator</span>
+                <span class="tag">Big ideas</span>
+              </div>
+              <div class="socials">
+                <a href="#" aria-label="Member Seven GitHub">GH</a>
+                <a href="#" aria-label="Member Seven LinkedIn">in</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about-band section" id="about">
+      <div class="container about-grid">
+        <div class="about-sticker">
+          <span class="big-symbol">✳</span>
+          <span class="sticker-note">Better together!</span>
+        </div>
+
+        <div class="about-copy">
+          <div class="kicker">A team, not just a group chat</div>
+          <h2>Good things happen when we build together.</h2>
+
+          <p>
+            We're a group of seven who enjoy sharing ideas, learning new
+            skills, and helping each other grow. This website is our shared
+            space to show who we are, celebrate what we're working on, and
+            make it easy for people to connect with us.
+          </p>
+
+          <p>We're still writing our story — and this is just the beginning.</p>
+
+          <div class="values">
+            <span class="value-pill">✦ Creativity</span>
+            <span class="value-pill">↗ Growth</span>
+            <span class="value-pill">♡ Friendship</span>
+            <span class="value-pill">⚡ Teamwork</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Made with a little teamwork</div>
+            <h2>Things we're building<span style="color:#ff7867">.</span></h2>
+          </div>
+
+          <p>
+            Showcase your group projects, experiments, events, or anything
+            you're proud of. These cards are ready for your real work.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-art">🧩</div>
+            <div class="project-body">
+              <h3>Project One</h3>
+              <p>
+                A short description of what it does, why you made it,
+                and who worked on it.
+              </p>
+              <a class="project-link" href="#contact">More about it ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-art">🚀</div>
+            <div class="project-body">
+              <h3>Project Two</h3>
+              <p>
+                Share a cool build, a learning experiment, or a challenge
+                you solved together.
+              </p>
+              <a class="project-link" href="#contact">More about it ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-art">🎨</div>
+            <div class="project-body">
+              <h3>Project Three</h3>
+              <p>
+                Add a project link, demo, repository, or a few details
+                about your process.
+              </p>
+              <a class="project-link" href="#contact">More about it ↗</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="contact-panel">
+          <div>
+            <div class="kicker" style="color:#5d3049">Your turn!</div>
+            <h2>Have an idea? Let's talk.</h2>
+            <p>
+              Want to collaborate, ask a question, or just say hello?
+              Add your group's public contact email or social link to
+              this button.
+            </p>
+          </div>
+
+          <!-- Replace this email with your real public contact email -->
+          <a class="button" href="mailto:hello@example.com">
+            Email the crew ↗
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <span>
+        © <span id="year"></span> The Collective · Made with ✳ and teamwork.
+      </span>
+
+      <div class="footer-links">
+        <a href="#home">Back to top ↑</a>
+        <a href="#team">The seven</a>
+        <a href="#projects">Projects</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    // Open or close the mobile navigation menu.
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+      );
+
+      menuToggle.textContent = isOpen ? "×" : "☰";
+    });
+
+    // Close the mobile menu when a navigation link is clicked.
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    // Automatically display the current year in the footer.
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>

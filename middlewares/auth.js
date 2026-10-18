@@ -1,0 +1,11 @@
+
+const authMiddleware = (req, res, next) => {
+    if (!req.session || !req.session.userId) {
+        // Browser page request: redirect to login
+        return res.redirect("/auth/login");
+    }
+
+    next();
+};
+
+module.exports = authMiddleware;
